@@ -1,12 +1,11 @@
 import express from "express";
-import * as dotenv from "dotenv";
+import dotenv from "dotenv";
 import cors from "cors";
 import OpenAI from "openai";
 
 dotenv.config();
-
 const openai = new OpenAI({
-  apiKey: "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",
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 const app = express();
@@ -38,6 +37,6 @@ app.post("/", async (req, res) => {
   }
 });
 
-app.listen(5000, () =>
+app.listen(80, () =>
   console.log("AI server started on http://localhost:5000")
 );
