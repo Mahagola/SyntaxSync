@@ -80,7 +80,7 @@ const handleSubmit = async (e) => {
 
   // messageDiv.innerHTML = "..."
   loader(messageDiv);
-
+  document.getElementById("header-label").style.display = "none";
   const response = await fetch("https://syntax-sync.vercel.app/", {
     method: "POST",
     headers: {
@@ -90,7 +90,6 @@ const handleSubmit = async (e) => {
       prompt: msg,
     }),
   });
-
   clearInterval(loadInterval);
   messageDiv.innerHTML = " ";
 
